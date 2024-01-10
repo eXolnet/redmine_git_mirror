@@ -13,6 +13,8 @@ jobs:
 #          - redmine-version: '5.0'
 #            ruby-version: '3.0'
 
+    name: Redmine ${{ matrix.redmine-version }} - Ruby ${{ matrix.ruby-version }}
+
     env:
       RAILS_ENV: test
       REDMINE_DIR: ${{ github.workspace }}/redmine
