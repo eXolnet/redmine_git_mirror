@@ -5,7 +5,12 @@ module URI
   class GIT < Generic
     DEFAULT_PORT = 9418
   end
-  @@schemes['GIT'] = GIT
+
+  if respond_to?(:register_scheme)
+    register_scheme 'GIT', GIT
+  else
+    @@schemes['GIT'] = GIT
+  end
 end
 
 module RedmineGitMirror
