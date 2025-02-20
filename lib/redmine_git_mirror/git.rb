@@ -36,7 +36,7 @@ module RedmineGitMirror
         url = RedmineGitMirror::URL.parse(url)
         RedmineGitMirror::Ssh.ensure_host_known(url.host) if url.uses_ssh?
 
-        if Dir.exists? clone_path
+        if Dir.exist? clone_path
           o, e = get_remote_url(clone_path)
           return e if e
 
