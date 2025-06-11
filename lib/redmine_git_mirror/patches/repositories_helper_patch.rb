@@ -1,6 +1,5 @@
 module RedmineGitMirror
   module Patches
-    unloadable
     module RepositoriesHelperPatch
 
       def git_mirror_field_tags(form, repository)
