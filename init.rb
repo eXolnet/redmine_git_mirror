@@ -15,7 +15,7 @@ Redmine::Plugin.register :redmine_git_mirror do
   url 'https://github.com/linniksa/redmine_git_mirror'
   author_url 'https://github.com/linniksa'
 
-  requires_redmine :version_or_higher => '3.3.0'
+  requires_redmine :version_or_higher => '5.0'
 
   settings :default => RedmineGitMirror::Settings::DEFAULT, :partial => 'git_mirror/settings'
 
