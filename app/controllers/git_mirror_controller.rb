@@ -26,6 +26,7 @@ class GitMirrorController < ActionController::Base
     end
 
     unless verify_gitlab_signature
+      Rails.logger.info "GitMirror: GitLab webhook signature verification failed"
       head 401
       return
     end
@@ -72,6 +73,7 @@ class GitMirrorController < ActionController::Base
     end
 
     unless verify_github_signature
+      Rails.logger.info "GitMirror: GitHub webhook signature verification failed"
       head 401
       return
     end
@@ -159,7 +161,7 @@ class GitMirrorController < ActionController::Base
     return false unless signature.present?
 
     digest = OpenSSL::Digest.new("sha256")
-    expected_signature = "sha256=" + OpenSSL::HMAC.hexdigest(digest, secretKey, request.body.read)
+    expected_signature = "sha256=" + OpenSSL::HMAC.hexdigest(digest, secretKey, request.raw_body)
     return Rack::Utils.secure_compare(expected_signature, signature)
   end
 end
