@@ -11,7 +11,7 @@ Redmine::Plugin.register :redmine_git_mirror do
   name 'Git Mirror'
   author 'Sergey Linnik'
   description 'Add ability to create readonly mirror of remote git repository'
-  version '1.3.1'
+  version '1.3.2'
   url 'https://github.com/linniksa/redmine_git_mirror'
   author_url 'https://github.com/linniksa'
 
