@@ -161,7 +161,7 @@ class GitMirrorController < ActionController::Base
     return false unless signature.present?
 
     digest = OpenSSL::Digest.new("sha256")
-    expected_signature = "sha256=" + OpenSSL::HMAC.hexdigest(digest, secretKey, request.raw_body)
+    expected_signature = "sha256=" + OpenSSL::HMAC.hexdigest(digest, secretKey, request.raw_post)
     return Rack::Utils.secure_compare(expected_signature, signature)
   end
 end
