@@ -13,6 +13,9 @@ jobs:
           - redmine-version: '6.1'
             ruby-version: '3.2'
 
+          - redmine-version: '7.0'
+            ruby-version: '3.2'
+
     name: Redmine ${{ matrix.redmine-version }} - Ruby ${{ matrix.ruby-version }}
 
     env:
